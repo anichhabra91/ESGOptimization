@@ -23,31 +23,32 @@ This project develops a framework for constructing **sustainable and high-perfor
 ### 1. Baseline Optimization
 
 Maximize Sharpe ratio subject to:
-- Full investment constraint: \\( \\sum w_i = 1 \\)
-- No short selling: \\( w_i \\geq 0 \\)
+- Full investment constraint: `sum(w_i) = 1`
+- No short selling: `w_i ≥ 0`
 
 ### 2. ESG-Constrained Optimization
 
 Additional constraint:
-- Minimum weighted ESG score: \\( \\sum w_i \\cdot ESG_i \\geq \\text{Threshold} \\)
+- Minimum weighted ESG score: `sum(w_i * ESG_i) ≥ ESG_Threshold`
 
 ### 3. Emission-Constrained Optimization
 
 Emission limit constraint:
-- \\( \\sum w_i \\cdot (\\text{Scope1}_i + \\text{Scope2}_i) \\leq \\text{Threshold} \\)
+- `sum(w_i * (Scope1_i + Scope2_i)) ≤ Emission_Threshold`
 
 ### 4. Regularization
 
 Variance regularization using a constraint on portfolio volatility:
-- \\( w^T \\Sigma w \\leq U \\)
+- `w.T @ Σ @ w ≤ U`
 
 ### 5. Clustering-Based Filtering
 
 K-Means clustering on:
-- ESG + Sharpe Ratio
+- ESG + Sharpe Ratio  
 - ESG + Scope 3 Emissions
 
 Used to reduce the universe before optimization.
+
 
 ## Optimization Portfolios
 
